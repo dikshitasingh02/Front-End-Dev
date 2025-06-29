@@ -12,7 +12,7 @@ export const validateToken = async () => {
     const token = await auth.currentUser.getIdToken(true);
     const response = await api.post('/validateToken', {}, {
         headers : {
-            "Authorization" : `Bearer ${token}`
+            "Authorization" : `Bearer ${token}`,
         },
     });
     return response.data;
