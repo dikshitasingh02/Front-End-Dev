@@ -5,7 +5,7 @@ const corsHandler = cors({ origin: true});
 
 exports.validateToken = functions.https.onRequest(async (req, res) => {
     corsHandler(req, res, async () => {
-        const token = req.headers.authorization?.split("Bearer")[1];
+        const token = req.headers.authorization?.split("Bearer ")[1];
         // Bearer aduhnegjvunhrthjtrhgtyhnrihjmyhiojmhyhgvujdgi
 
         if(!token) {
