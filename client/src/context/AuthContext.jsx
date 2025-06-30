@@ -1,11 +1,15 @@
 import React, { useContext, createContext, useEffect, useState } from "react";
 import {
-    onAuthStateChanged, signInWithEmailAndPassword, signOut,
-    signInWithRedirect,
     GoogleAuthProvider,
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signInWithRedirect,
+    signOut,
+    getRedirectResult,
 } from "firebase/auth";
+import { auth } from "../config/firebase.config";
 import { validateToken } from "../api";
-import {auth,providerGoogle} from "../config/firebase.config";
+import { signInWithPopup } from "firebase/auth";
 
 const AuthContext = createContext();
 
@@ -13,7 +17,7 @@ export const useAuth = () => {
     return useContext(AuthContext);
 };
 
-export const AuthProvider = ({children}) => {
+export const AuthProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -25,7 +29,8 @@ export const AuthProvider = ({children}) => {
     };
 
     const loginWithGoogle = () => {
-        return signInWithRedirect(auth, providerGoogle);
+        // return signInWithRedirect(auth, providerGoogle);
+        return signInWithPopup(auth, providerGoogle); 
     };
 
     const logOut = () => {
@@ -33,43 +38,55 @@ export const AuthProvider = ({children}) => {
     };
 
     useEffect(() => {
-  const unsubscribe = onAuthStateChanged(auth, async (user) => {
-    setLoading(true);
+        const fetchUser = async () => {
+            try {
+                const result = await getRedirectResult(auth);
+                if (result?.user) {
+                    console.log("✅ Google Redirect login completed");
+                } else {
+                    console.log("ℹ️ No redirect result (maybe fresh load)");
+                }
+            } catch (err) {
+                console.error("❌ Error handling Google redirect result:", err);
+            }
 
-    if (user) {
-      try {
-        const token = await user.getIdToken();
-        console.log("Firebase User Token:", token); // ✅ DEBUG
+            const unsubscribe = onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                    try {
+                        const data = await validateToken(); // <- Token gets logged here
+                        console.log("User: ", user);
+                        console.log("UserData: ", data)
+                        setCurrentUser(user);
+                        setUserData(data);
+                    } catch (error) {
+                        console.log("[TOKEN_FETCHING_VALIDATION_FAILED]:", error);
+                        setCurrentUser(null);
+                    }
+                } else {
+                    console.log("⚠️ No user signed in.");
+                    setCurrentUser(null);
+                    setUserData(null);
+                }
+                setLoading(false);
+            });
 
-        const data = await validateToken(); // Your backend call
-        console.log("Validated User from backend:", data); // ✅ DEBUG
+            return unsubscribe;
+        };
 
-        setCurrentUser(data);
-        setUserData(data);
-      } catch (error) {
-        console.error("[TOKEN_FETCHING_VALIDATION_FAILED]:", error); // ✅ DEBUG
-        setCurrentUser(null);
-      }
-    } else {
-      console.log("No Firebase user found"); // ✅ DEBUG
-      setCurrentUser(null);
-      setUserData(null);
-    }
-
-    setLoading(false);
-  });
-
-  return unsubscribe;
-}, []);
-
+        fetchUser();
+    }, []);
 
     const value = {
-        currentUser, userData, loginWithEmailPassword, loginWithGoogle, logOut,
+        currentUser,
+        userData,
+        loginWithEmailPassword,
+        loginWithGoogle,
+        logOut,
     };
 
-    return(
+    return (
         <AuthContext.Provider value={value}>
-            {!loading ? children : <p>loading....</p>}
+            {!loading ? children : <p>Loading....</p>}
         </AuthContext.Provider>
-    )
+    );
 };

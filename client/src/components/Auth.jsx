@@ -1,38 +1,22 @@
 import React, { useEffect } from 'react';
 import { FcGoogle } from "react-icons/fc";
 import { useAuth } from '../context/AuthContext';
-import { useNavigate } from "react-router-dom";
-import { getRedirectResult } from "firebase/auth";
-import { auth } from "../config/firebase.config";
+import { useNavigate } from 'react-router-dom';
 
 const Auth = () => {
   const { loginWithGoogle, currentUser } = useAuth();
   const navigate = useNavigate();
 
-  // Handle redirect result on mount
-  useEffect(() => {
-    getRedirectResult(auth)
-      .then((result) => {
-        if (result && result.user) {
-          console.log("Redirect successful, user:", result.user);
-          // No need to navigate manually here; AuthContext will handle it via currentUser
-        }
-      })
-      .catch((error) => {
-        console.error("Error in redirect sign-in:", error);
-      });
-  }, []);
-
-  // Redirect to home if already logged in
   useEffect(() => {
     if (currentUser) {
-      navigate("/", { replace: true });
+      navigate("/", { replace: true});
     }
   }, [currentUser, navigate]);
 
   const handleGoogleLogin = async () => {
-    await loginWithGoogle(); // triggers signInWithRedirect
-  };
+    console.log("Clicked Google Sign-in");
+    await loginWithGoogle(); // triggers redirect
+};
 
   return (
     <div className='w-screen h-screen flex items-center justify-center p-4'>
