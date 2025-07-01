@@ -6,14 +6,14 @@ import { dropDownFadeInOut } from '../animations';
 
 
 const Header = () => {
-  const { userData, logOut } = useAuth();
+  const { currentUser, logOut } = useAuth();
   const [open, setOpen] = useState(false);
   return <header className='w-full flex items-center justify-center py-4'>
     <div className='w-full md:w-3/4 p-3 bg-gray-100 rounded-lg flex items-center justify-between'>
     <p>Hellooo There</p>
     <div className='flex items-center justify-center'>
       <div className='w-12 h-12 rounded-full relative cursor-pointer' onClick={() => setOpen(!open)}>
-        <img src={userData?.user?.photoURL} className='w-full h-full object-cover rounded-full' alt='' referrerPolicy='no-referrer'/>
+        <img src={currentUser?.photoURL} className='w-full h-full object-cover rounded-full' alt='' referrerPolicy='no-referrer'/>
 
         {/* drop down boc */}
         <AnimatePresence>
@@ -22,8 +22,8 @@ const Header = () => {
         {...dropDownFadeInOut}
         onMouseLeave={() => setOpen(false)} className='w-72 rounded-md bg-white shadow-md p-4 absolute top-14 right-0 flex items-center flex-col justify-center gap-4'>
           <div className='text-center'>
-          <h2 className='text-xl text-gray-600'>{userData?.user?.displayName}</h2>
-          <p className='text-base text-gray-400'>{userData?.user?.email}</p>
+          <h2 className='text-xl text-gray-600'>{currentUser?.displayName}</h2>
+          <p className='text-base text-gray-400'>{currentUser?.email}</p>
         </div>
 
         {/* routes */}
