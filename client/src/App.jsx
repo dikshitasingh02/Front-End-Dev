@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import { Home } from './pages';
+import { /*Accordion,AutoSuggestion,Carousel,CustomBreadCrumb,CustomFormValidations,*/CustomSearchBar,Home/*,DragAndDrop,InfiniteScroll,ToastNotification*/ } from './pages';
 import { Auth } from './components';
 import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './context/AuthContext';
@@ -11,7 +11,17 @@ const App = () => {
   <Router>
     <Routes>
       <Route path="/login" element={<Auth />} />
-      <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+      <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} >
+      {/* <Route path='draganddrop' element={<DragAndDrop/>} />
+      <Route path='accordion' element={<Accordion/>} />
+      <Route path='toast' element={<ToastNotification/>} />
+      <Route path='carousel' element={<Carousel/>} />
+      <Route path='infiniteScroll' element={<InfiniteScroll/>} />
+      <Route path='auto-suggestion' element={<AutoSuggestion/>} />
+      <Route path='breadCrumb' element={<CustomBreadCrumb/>} />
+      <Route path='formValidations' element={<CustomFormValidations/>} /> */}
+      <Route path='searchBar' element={<CustomSearchBar />} />
+      </Route>
     </Routes>
   </Router>
   </AuthProvider>
