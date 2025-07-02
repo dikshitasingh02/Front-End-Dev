@@ -17,7 +17,7 @@ const Home = () => {
   ];
 
   return (
-    <div className='flex-col px-4 container max-w-screen-xl'>
+    <div className='flex-col px-4 container max-w-screen-xl w-full'>
       <Header />
 
       <div className='w-full flex items-center justify-center flex-wrap gap-12'>
@@ -26,11 +26,11 @@ const Home = () => {
         Home
         </Link>
 
-        {routes.map((item) => {
+        {routes.map((item) => (
           <Link key={item.link} to={item.link} className='flex items-center justify-center gap-2 text-xl'>
             {item.label}
           </Link>
-        })}
+        ))}
       </div>
       <div className='w-full flex-col'>
         <Outlet />
