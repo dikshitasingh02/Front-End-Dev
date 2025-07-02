@@ -1,4 +1,5 @@
 import React from 'react'
+import CustomSearchBarClient from '../components/CustomSearchBarClient'
 
 const CustomSearchBar = () => {
   return <div className='w-full  flex items-center justify-center flex-col gap-12 mt-8'>
