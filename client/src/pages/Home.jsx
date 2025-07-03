@@ -6,7 +6,7 @@ import { FaHouse } from 'react-icons/fa6';
 const Home = () => {
   const routes = [
     // { link: '/draganddrop', label: 'Drag & Drop'},
-    // { link: '/accordion', label: 'Accordion'},
+     { link: '/accordion', label: 'Accordion'},
     // { link: '/toast', label: 'Toast'},
     // { link: '/carousel', label: 'Carousel'},
     // { link: '/infinitScroll', label: 'Infinite Scroll'},

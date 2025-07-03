@@ -16,7 +16,7 @@ export const validateToken = async () => {
 
     try {
         const token = await auth.currentUser.getIdToken(true);
-        console.log("✅ Token:", token);
+        //console.log("✅ Token:", token);
 
         const response = await api.post('/validateToken', {}, {
             headers: {
@@ -26,7 +26,7 @@ export const validateToken = async () => {
 
         return response.data;
     } catch (error) {
-        console.error("❌ Error fetching token:", error);
+        //console.error("❌ Error fetching token:", error);
     }
 };
                                                                                                                         

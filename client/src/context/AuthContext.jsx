@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }) => {
                 if (result?.user) {
                     console.log("✅ Google Redirect login completed");
                 } else {
-                    console.log("ℹ️ No redirect result (maybe fresh load)");
+                    //console.log("ℹ️ No redirect result (maybe fresh load)");
                 }
             } catch (err) {
                 console.error("❌ Error handling Google redirect result:", err);
@@ -54,8 +54,8 @@ export const AuthProvider = ({ children }) => {
                 if (user) {
                     try {
                         const data = await validateToken(); // <- Token gets logged here
-                        console.log("User: ", user);
-                        console.log("UserData: ", data)
+                        //console.log("User: ", user);
+                        //console.log("UserData: ", data)
                         setCurrentUser(user);
                         setUserData(data);
                     } catch (error) {
