@@ -7,8 +7,8 @@ const Home = () => {
   const routes = [
     // { link: '/draganddrop', label: 'Drag & Drop'},
      { link: '/accordion', label: 'Accordion'},
-    // { link: '/toast', label: 'Toast'},
-    // { link: '/carousel', label: 'Carousel'},
+     { link: '/toast', label: 'Toast'},
+     { link: '/carousel', label: 'Carousel'},
     // { link: '/infinitScroll', label: 'Infinite Scroll'},
     // { link: '/auto-suggestions', label: 'Auto Suggestion'},
     // { link: '/breadCrumb', label: 'BreadCrumb'},
