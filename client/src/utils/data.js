@@ -3,7 +3,7 @@ export const Blogdata = [
     id: 1,
     title: "Exploring the Mountains",
     description: "An amazing journey through the rocky mountains.",
-    image: "https://images.unsplash.com/photo-1506748686214-e9df144d9d0d"
+    image: "https://cdn.pixabay.com/photo/2015/05/18/23/53/backpacker-772991_640.jpg"
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ export const Blogdata = [
     id: 4,
     title: "Desert Safari",
     description: "Experience the thrill of the desert.",
-    image: "https://images.unsplash.com/photo-1661963573455-ba0446e2cab9"
+    image: "https://plus.unsplash.com/premium_photo-1661962542692-4fe7a4ad6b54?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZGVzZXJ0JTIwc2FmYXJpfGVufDB8fDB8fHww"
   },
   {
     id: 5,
@@ -45,7 +45,7 @@ export const Blogdata = [
     id: 8,
     title: "Countryside Escape",
     description: "Escape to the quiet countryside.",
-    image: "https://images.unsplash.com/photo-1604024003713-36d31c9b77c5"
+    image: "https://cdn.pixabay.com/photo/2020/05/07/08/27/city-5140654_1280.jpg"
   },
   {
     id: 9,
@@ -69,7 +69,7 @@ export const Blogdata = [
     id: 12,
     title: "Sunset Serenity",
     description: "Witness the most beautiful sunsets.",
-    image: "https://images.unsplash.com/photo-1501979031675-7f6aefacb9d0"
+    image: "https://cdn.pixabay.com/photo/2013/10/19/03/07/sunset-197723_960_720.jpg"
   },
   {
     id: 13,
@@ -81,31 +81,31 @@ export const Blogdata = [
     id: 14,
     title: "Jungle Expedition",
     description: "Into the wild with nature’s best.",
-    image: "https://images.unsplash.com/photo-1572375794761-641e8d6f2563"
+    image: "https://plus.unsplash.com/premium_photo-1687879820677-d965e81d3270?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGFtYXpvbiUyMGZvcmVzdHxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 15,
     title: "Ancient Ruins",
     description: "Explore historical wonders of the world.",
-    image: "https://images.unsplash.com/photo-1584702501521-4fe3e76d3563"
+    image: "https://cdn.pixabay.com/photo/2015/11/19/09/05/ruin-1050654_640.jpg"
   },
   {
     id: 16,
     title: "Cliffside Views",
     description: "Panoramic views from the top of the cliff.",
-    image: "https://images.unsplash.com/photo-1499696010180-025ef2705353"
+    image: "https://cdn.pixabay.com/photo/2021/08/28/09/51/sea-6580562_640.jpg"
   },
   {
     id: 17,
     title: "Northern Lights",
     description: "Chasing the aurora borealis.",
-    image: "https://images.unsplash.com/photo-1500111709600-7761aa8216b2"
+    image: "https://cdn.pixabay.com/photo/2017/08/16/11/39/aurora-borealis-2647474_1280.jpg"
   },
   {
     id: 18,
     title: "Vibrant Streets",
     description: "Experience local culture and street life.",
-    image: "https://images.unsplash.com/photo-1504198453319-5ce911bafcde"
+    image: "https://cdn.pixabay.com/photo/2021/12/15/04/21/skyscraper-6871750_640.jpg"
   },
   {
     id: 19,
