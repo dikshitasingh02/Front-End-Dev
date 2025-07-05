@@ -5,19 +5,20 @@ import { FaHouse } from 'react-icons/fa6';
 
 const Home = () => {
   const routes = [
-    // { link: '/draganddrop', label: 'Drag & Drop'},
+     { link: '/draganddrop', label: 'Drag & Drop'},
      { link: '/accordion', label: 'Accordion'},
      { link: '/toast', label: 'Toast'},
      { link: '/carousel', label: 'Carousel'},
-    // { link: '/infinitScroll', label: 'Infinite Scroll'},
+     { link: '/infiniteScroll', label: 'Infinite Scroll'},
     // { link: '/auto-suggestions', label: 'Auto Suggestion'},
     // { link: '/breadCrumb', label: 'BreadCrumb'},
     // { link: '/formValidations', label: 'Form Validations'},
     { link: '/searchBar', label: 'Custom Search Bar'},
+    { link: '/pagination', label: 'Pagination'},
   ];
 
   return (
-    <div className='flex-col px-4 container max-w-screen-xl w-full'>
+    <div className='flex flex-col px-4 max-w-screen-xl w-full mx-auto'>
       <Header />
 
       <div className='w-full flex items-center justify-center flex-wrap gap-12'>
