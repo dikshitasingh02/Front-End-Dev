@@ -11,10 +11,10 @@ const Home = () => {
      { link: '/carousel', label: 'Carousel'},
      { link: '/infiniteScroll', label: 'Infinite Scroll'},
      { link: '/auto-suggestion', label: 'Auto Suggestion'},
-    // { link: '/breadCrumb', label: 'BreadCrumb'},
+     { link: '/breadCrumb', label: 'BreadCrumb'},
      { link: '/formValidations', label: 'Form Validations'},
-    { link: '/searchBar', label: 'Custom Search Bar'},
-    { link: '/pagination', label: 'Pagination'},
+     { link: '/searchBar', label: 'Custom Search Bar'},
+     { link: '/pagination', label: 'Pagination'},
   ];
 
   return (
