@@ -10,7 +10,7 @@ const Home = () => {
      { link: '/toast', label: 'Toast'},
      { link: '/carousel', label: 'Carousel'},
      { link: '/infiniteScroll', label: 'Infinite Scroll'},
-    // { link: '/auto-suggestions', label: 'Auto Suggestion'},
+     { link: '/auto-suggestion', label: 'Auto Suggestion'},
     // { link: '/breadCrumb', label: 'BreadCrumb'},
      { link: '/formValidations', label: 'Form Validations'},
     { link: '/searchBar', label: 'Custom Search Bar'},
