@@ -14,6 +14,7 @@ import DashboardHome from './pages/dashboard-home.jsx'
 import DashboardUsers from './pages/dashboard-users.jsx'
 import PublicLayout from './layouts/public-layout.jsx'
 import ProtectedLayout from './layouts/protected-layout.jsx'
+import HeavyComponent from './HeavyComponent.jsx'
 
 const router = createBrowserRouter([
   // { path: '/', element: <HomePage/>},
@@ -51,6 +52,8 @@ createRoot(document.getElementById('root')).render(
       </Routes>
     </Router> */}
 
-    <RouterProvider router={router} />
+    {/* <RouterProvider router={router} /> */}
+
+    <HeavyComponent />
   </StrictMode>,
 )

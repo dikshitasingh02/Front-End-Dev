@@ -123,7 +123,7 @@ html, body {
   font-family: sans-serif;
 }
 
-.counter_card {
+/* .counter_card {
   padding: 20px;
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 10px;
@@ -132,7 +132,7 @@ html, body {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  width: 100%; /* full width in grid cell */
+  width: 100%; /* full width in grid cell 
   background-color: #fff;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
@@ -187,4 +187,4 @@ html, body {
   max-width: 1200px;
   margin: 0 auto;
 }
-
+ */
