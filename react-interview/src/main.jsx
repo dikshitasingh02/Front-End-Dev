@@ -15,6 +15,7 @@ import DashboardUsers from './pages/dashboard-users.jsx'
 import PublicLayout from './layouts/public-layout.jsx'
 import ProtectedLayout from './layouts/protected-layout.jsx'
 import HeavyComponent from './HeavyComponent.jsx'
+import Counter from './counter.jsx'
 
 const router = createBrowserRouter([
   // { path: '/', element: <HomePage/>},
@@ -55,6 +56,7 @@ createRoot(document.getElementById('root')).render(
     {/* <RouterProvider router={router} /> */}
 
     {/* <HeavyComponent /> */}
-    <HomePage />
+    {/* <HomePage /> */}
+    <Counter />
   </StrictMode>,
 )
