@@ -2,6 +2,10 @@
 // const age: number = 30;
 // const userName: string = "Alice";
 // const isActive: boolean = true;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 // console.log("Age :", age);
 // console.log("Name", userName);
 // console.log("Is Active:", isActive);
@@ -72,36 +76,47 @@
 // const doubled = processNumbers([1, 2, 3], (num) => num * 2);
 // console.log(doubled);
 // Classes
-class Person {
-    constructor(name, age) {
-        this.name = name;
-        this.age = age;
-        this.introduce = () => {
-            return `hi, I'm ${this.name} and I'm ${this.age} years old...`;
-        };
-    }
-}
-const p1 = new Person("John", 25);
-console.log(p1.introduce());
-class BankAccount {
-    constructor(initialBalance) {
-        this.deposit = (amt) => {
-            this.balance += amt;
-        };
-        this.getBalance = () => {
-            return this.balance;
-        };
-        this.balance = initialBalance;
-    }
-}
-const account = new BankAccount(10000);
-account.deposit(5000);
-console.log(account.getBalance());
-class MathUnits {
-}
-MathUnits.PI = 3.14159;
-MathUnits.calculateCircumference = (radius) => {
-    return 2 + MathUnits.PI * radius;
-};
-console.log(MathUnits.PI);
-console.log(MathUnits.calculateCircumference(5));
+// class Person {
+//     constructor(public name: string, public age: number) {}
+//     introduce = (): string => {
+//         return `hi, I'm ${this.name} and I'm ${this.age} years old...`;
+//     };
+// }
+// const p1 = new Person("John",25);
+// console.log(p1.introduce());
+// class BankAccount {
+//     private balance: number;
+//     constructor(initialBalance: number){
+//         this.balance = initialBalance;
+//     }
+//     deposit = (amt: number): void => {
+//         this.balance += amt;
+//     }
+//     getBalance = (): number => {
+//         return this.balance;
+//     }
+// }
+// const account = new BankAccount(10000);
+// account.deposit(5000);
+// console.log(account.getBalance());
+// class MathUnits {
+//     static PI = 3.14159;
+//     static calculateCircumference = (radius: number): number => {
+//         return 2 + MathUnits.PI * radius;
+//     };
+// }
+// console.log(MathUnits.PI);
+// console.log(MathUnits.calculateCircumference(5));
+/*
+    use cases - stateless operations
+    syntax - Procedural
+    
+    use case - Statefull Objects
+    syntax - Object oriented
+*/
+const math_1 = require("./modules/math");
+const calculator_1 = __importDefault(require("./modules/calculator"));
+console.log("Addition : ", (0, math_1.addition)(5, 5));
+console.log("Subtraction : ", (0, math_1.subtraction)(5, 5));
+const calc = new calculator_1.default();
+console.log("Addition : ", calc.add(5, 5));

@@ -94,44 +94,44 @@
 
 // Classes
 
-class Person {
-    constructor(public name: string, public age: number) {}
+// class Person {
+//     constructor(public name: string, public age: number) {}
 
-    introduce = (): string => {
-        return `hi, I'm ${this.name} and I'm ${this.age} years old...`;
-    };
-}
-const p1 = new Person("John",25);
-console.log(p1.introduce());
+//     introduce = (): string => {
+//         return `hi, I'm ${this.name} and I'm ${this.age} years old...`;
+//     };
+// }
+// const p1 = new Person("John",25);
+// console.log(p1.introduce());
 
-class BankAccount {
-    private balance: number;
+// class BankAccount {
+//     private balance: number;
 
-    constructor(initialBalance: number){
-        this.balance = initialBalance;
-    }
+//     constructor(initialBalance: number){
+//         this.balance = initialBalance;
+//     }
 
-    deposit = (amt: number): void => {
-        this.balance += amt;
-    }
+//     deposit = (amt: number): void => {
+//         this.balance += amt;
+//     }
 
-    getBalance = (): number => {
-        return this.balance;
-    }
-}
-const account = new BankAccount(10000);
-account.deposit(5000);
-console.log(account.getBalance());
+//     getBalance = (): number => {
+//         return this.balance;
+//     }
+// }
+// const account = new BankAccount(10000);
+// account.deposit(5000);
+// console.log(account.getBalance());
 
-class MathUnits {
-    static PI = 3.14159;
+// class MathUnits {
+//     static PI = 3.14159;
 
-    static calculateCircumference = (radius: number): number => {
-        return 2 + MathUnits.PI * radius;
-    };
-}
-console.log(MathUnits.PI);
-console.log(MathUnits.calculateCircumference(5));
+//     static calculateCircumference = (radius: number): number => {
+//         return 2 + MathUnits.PI * radius;
+//     };
+// }
+// console.log(MathUnits.PI);
+// console.log(MathUnits.calculateCircumference(5));
 
 /* 
     use cases - stateless operations
@@ -140,3 +140,13 @@ console.log(MathUnits.calculateCircumference(5));
     use case - Statefull Objects
     syntax - Object oriented
 */
+
+
+import {addition, subtraction} from "@modules/math";
+import Calculator from "./modules/calculator";
+
+console.log("Addition : ",addition(5, 5));
+console.log("Subtraction : ",subtraction(5, 5));
+
+const calc = new Calculator();
+console.log("Addition : ", calc.add(5, 5));
