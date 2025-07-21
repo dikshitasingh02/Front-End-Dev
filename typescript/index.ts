@@ -142,11 +142,48 @@
 */
 
 
-import {addition, subtraction} from "@modules/math";
-import Calculator from "./modules/calculator";
+// import {addition, subtraction} from "@modules/math";
+// import Calculator from "./modules/calculator";
 
-console.log("Addition : ",addition(5, 5));
-console.log("Subtraction : ",subtraction(5, 5));
+// console.log("Addition : ",addition(5, 5));
+// console.log("Subtraction : ",subtraction(5, 5));
 
-const calc = new Calculator();
-console.log("Addition : ", calc.add(5, 5));
+// const calc = new Calculator();
+// console.log("Addition : ", calc.add(5, 5));
+
+import { User, Admin, ProductDictionary } from "types";
+
+const user1: User = {
+    id: "10001",
+    firstname: "John",
+    lastname: "Smith",
+    email: "john@gmail.com",
+    contact: "23456789",
+    address: {
+        city: "",
+        state: "",
+        zipcode: "",
+    },
+};
+
+const admin: Admin = {
+    id: "1001",
+    firstname: "John",
+    lastname: "Smith",
+    email: "john@gmail.com",
+    contact: "23456789",
+    role: "Admin",
+    address: {
+        city: "",
+        state: "",
+        zipcode: "",
+    },
+}
+
+const stationary: ProductDictionary = {
+    id: "P001",
+    name: "Pencil",
+};
+
+console.log("User : ",admin);
+console.log("Product: ", stationary);
