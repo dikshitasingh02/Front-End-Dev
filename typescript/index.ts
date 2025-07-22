@@ -151,39 +151,112 @@
 // const calc = new Calculator();
 // console.log("Addition : ", calc.add(5, 5));
 
-import { User, Admin, ProductDictionary } from "types";
+// import { User, Admin, ProductDictionary } from "types";
 
-const user1: User = {
-    id: "10001",
-    firstname: "John",
-    lastname: "Smith",
-    email: "john@gmail.com",
-    contact: "23456789",
-    address: {
-        city: "",
-        state: "",
-        zipcode: "",
-    },
-};
+// const user1: User = {
+//     id: "10001",
+//     firstname: "John",
+//     lastname: "Smith",
+//     email: "john@gmail.com",
+//     contact: "23456789",
+//     address: {
+//         city: "",
+//         state: "",
+//         zipcode: "",
+//     },
+// };
 
-const admin: Admin = {
-    id: "1001",
-    firstname: "John",
-    lastname: "Smith",
-    email: "john@gmail.com",
-    contact: "23456789",
-    role: "Admin",
-    address: {
-        city: "",
-        state: "",
-        zipcode: "",
-    },
+// const admin: Admin = {
+//     id: "1001",
+//     firstname: "John",
+//     lastname: "Smith",
+//     email: "john@gmail.com",
+//     contact: "23456789",
+//     role: "Admin",
+//     address: {
+//         city: "",
+//         state: "",
+//         zipcode: "",
+//     },
+// }
+
+// const stationary: ProductDictionary = {
+//     id: "P001",
+//     name: "Pencil",
+// };
+
+// console.log("User : ",admin);
+// console.log("Product: ", stationary);
+
+//Types of Enums
+
+// numeric Enums
+// enum Direction {
+//     North, // 0
+//     East,  // 1
+//     South, // 2
+//     West,  // 3
+// }
+
+// // string enums
+// enum StringDirections {
+//     North = "North",
+//     East = "East",
+//     South = "South",
+//     West = "West",
+// }
+// console.log(StringDirections.North);
+
+// // hetrogeneous enums
+// enum Status {
+//     Success = 1,
+//     Failure = "FAIL"
+// }
+// console.log(Status.Success, Status.Failure);
+
+// enum Role
+enum Role {
+    Admin = "ADMIN",
+    User = "USER",
+    Guest = "GUEST",
 }
 
-const stationary: ProductDictionary = {
-    id: "P001",
-    name: "Pencil",
+// Decorators to restrict access
+
+const Authorize = (allowedRoles: Role[]) => (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
+    const originalMethod = descriptor.value;
+    descriptor.value = (...args: any[]) => {
+        const userRole: Role = args[0]; // assuming the first argument is user role
+
+        if(allowedRoles.includes(userRole)) {
+            console.log(`Access granted to ${userRole}`);
+            return originalMethod.apply(target, args);
+        } else {
+            throw new Error(`Access denied for the role : ${userRole}`);
+        }
+    };
 };
 
-console.log("User : ",admin);
-console.log("Product: ", stationary);
+// service class
+
+class DashboardService {
+    @Authorize([Role.Admin, Role.User])
+    viewDashboard (userRole: Role)  {
+        console.log("Viewing Dashboard...");
+    };
+
+    @Authorize([Role.Admin])
+    editSettings (userRole: Role) {
+        console.log("Editing Settings...");
+    };
+}
+
+// simulate the role based access 
+const service = new DashboardService();
+
+try{
+   service.viewDashboard(Role.User);
+   service.editSettings(Role.Guest);
+} catch(error){
+    console.log((error as Error)?.message);
+}
