@@ -1,10 +1,13 @@
 "use client";
 
+import { useAuth, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export const Header = () => {
     const pathname = usePathname();
+
+    const {userId} = useAuth();
   const routes = [
     { link: "/", label: "Home" },
     { link: "/products", label: "Product" },
@@ -18,7 +21,7 @@ export const Header = () => {
           Logo
         </Link>
 
-        <nav>
+        <nav className="flex items-center justify-center gap-8">
           <ul className="flex items-center justify-center gap-8">
             {routes.map((route) => (
               <li key={route.link}>
@@ -28,6 +31,11 @@ export const Header = () => {
               </li>
             ))}
           </ul>
+
+          {userId ? (<UserButton afterSignOutUrl="/" />) : (<div className="flex items-center justify-center gap-8">
+            <Link href={"/sign-in"} className="px-4 py-2 rounded-md border-neutral-600 border">Sign In</Link>
+            <Link href={"/sign-up"} className="px-4 py-2 rounded-md bg-neutral-600 ">Sign Up</Link>
+            </div>) }
         </nav>
       </header>
     </>
