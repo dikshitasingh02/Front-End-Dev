@@ -1,5 +1,5 @@
 # Front-End-Dev
 
 
-##Client Side - ReactJS
-##Server Side - NodeJS
+Client Side - ReactJS
+Server Side - NodeJS
